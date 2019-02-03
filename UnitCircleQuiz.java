@@ -108,14 +108,14 @@ public class UnitCircleQuiz{
          g.fillRect(10, 80, 200, 150);
          g.setColor(Color.BLACK);
          g.drawString("Correct!", 40, 100);
-         panel.sleep(2500);
+         panel.sleep(4000);
       }else{
          result = 0;
          g.setColor(Color.RED);
          g.fillRect(10, 80, 200, 50);
          g.setColor(Color.BLACK);
          g.drawString("Incorrect", 40, 100);
-         panel.sleep(2500);
+         panel.sleep(6000);
       }
       
       return result;
