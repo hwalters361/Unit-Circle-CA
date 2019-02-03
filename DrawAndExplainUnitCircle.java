@@ -1,5 +1,5 @@
 import java.awt.*;
-public class DrawingPanelTest{
+public class DrawAndExplainUnitCircle{
 
    public static final int PANEL_WIDTH = 500;
    public static final int PANEL_HEIGHT = 500;
@@ -14,4 +14,5 @@ public class DrawingPanelTest{
       int radius = diameter/2;
       
       g.drawOval((PANEL_WIDTH/2)-radius,(PANEL_HEIGHT/2)-radius, diameter, diameter);
+   }
 }
