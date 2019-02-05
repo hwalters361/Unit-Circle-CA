@@ -3,5 +3,8 @@ public class UnitCircleQuizTest{
       UnitCircleQuiz quiz = new UnitCircleQuiz();
       
       quiz.playQuiz();
+      
+      quiz.runQuestion(14);
+      quiz.finisher();
    }
 }
