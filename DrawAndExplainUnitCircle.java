@@ -7,13 +7,23 @@ public class DrawAndExplainUnitCircle{
    public static void main(String[] args){
       //creates a drawing panel window
       DrawingPanel panel1 =	new DrawingPanel(PANEL_WIDTH,	PANEL_HEIGHT);
-      Graphics	g = panel1.getGraphics();
+      Graphics	g1 = panel1.getGraphics();
+      
+      basicUnitCircle(g1, panel1);
+      
+      
+      
+   }
+   
+   public static void basicUnitCircle(Graphics g, DrawingPanel panel){
       Font labelFont = new Font("Times New Roman", Font.BOLD, 14);
       Font mainText = new Font("Times New Roman", Font.PLAIN, 20);
-      //creates the circle's diameter
+
+      //creates circles diameter
       int diameter = 400;
       int radius = diameter/2;
       
+      //finds the x middle and the y middle
       int halfWidth = PANEL_WIDTH/2;
       int halfHeight = PANEL_HEIGHT/2;
       
@@ -81,4 +91,6 @@ public class DrawAndExplainUnitCircle{
       g.drawLine(halfWidth+125, halfHeight+216, halfWidth-125, halfHeight-216);
       g.drawLine(halfWidth-125, halfHeight+216, halfWidth+125, halfHeight-216);
    }
+   
+   
 }
