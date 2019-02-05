@@ -104,8 +104,13 @@ public class UnitCircleQuiz{
       
       if (myAnswer.equals(userInput)){
          result = 1;
+         
          g.setColor(Color.GREEN);
-         g.fillRect(10, 80, 200, 150);
+         g.fillRect(10, 80, 200, 50);
+         
+         g.setColor(Color.WHITE);
+         g.fillRect(8,78,198,48);
+         
          g.setColor(Color.BLACK);
          g.drawString("Correct!", 40, 100);
          panel.sleep(4000);
@@ -113,9 +118,13 @@ public class UnitCircleQuiz{
          result = 0;
          g.setColor(Color.RED);
          g.fillRect(10, 80, 200, 50);
+         
+         g.setColor(Color.WHITE);
+         g.fillRect(8,78,198,48);
+         
          g.setColor(Color.BLACK);
          g.drawString("Incorrect", 40, 100);
-         panel.sleep(6000);
+         panel.sleep(5000);
       }
       
       return result;
