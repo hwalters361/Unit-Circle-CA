@@ -20,6 +20,23 @@ public class UnitCircleQuiz{
       g = panel.getGraphics();
       
    }
+   
+   public int getCorrect(){
+      return correct;
+   }
+   
+   public int getIncorrect(){
+      return incorrect;
+   }
+   
+   public DrawingPanel getDrawingPanel(){
+      return panel;
+   }
+   
+   public Graphics getGraphics(){
+      return g;
+   }
+   
    public UnitCircleQuiz(int totalQs, DrawingPanel givenPanel, Graphics givenG){
       this.totalQuestions = totalQs;
       this.panel = givenPanel;
@@ -27,22 +44,31 @@ public class UnitCircleQuiz{
    }
 
    public void playQuiz(){
-      for (int i = 0; i < this.totalQuestions; i++){
+      for (int i = 1; i <= this.totalQuestions; i++){
          //removes everything from the panel
          
-         this.correct += runQuestion(i);
+         runQuestion(i);
          finisher();
          
          
       }
    }
    
-   private void finisher(){
+   public void finisher(){
       System.out.println("You got "+correct+" questions right out of "+totalQuestions);
       g.drawString("You got "+correct+" questions right out of "+totalQuestions, 500, 500);
+      if (correct/totalQuestions <= 0.5){
+         g.drawString("You probably need to work on your skills. Review the Unit Circle", 500, 480);
+      }else if (0.8>correct/totalQuestions && correct/totalQuestions > 0.5){
+         g.drawString("You're getting there! Review the Unit Circle", 500, 480);
+      }else if (correct/totalQuestions > 0.8 && incorrect > 0){
+         g.drawString("Almost perfect! Keep reviewing", 500, 480);
+      }else if (incorrect == 0){
+         g.drawString("Perfect score! 100%", 500, 480);
+      }
    }
    
-   private int runQuestion(int num){
+   public int runQuestion(int num){
       String[] trigFunctions= {"sin",
                               "cos",
                               "tan",
@@ -104,7 +130,7 @@ public class UnitCircleQuiz{
       
       if (myAnswer.equals(userInput)){
          result = 1;
-         
+         correct++;
          g.setColor(Color.GREEN);
          g.fillRect(10, 80, 200, 50);
          
@@ -115,6 +141,7 @@ public class UnitCircleQuiz{
          g.drawString("Correct!", 40, 100);
          panel.sleep(4000);
       }else{
+         incorrect++;
          result = 0;
          g.setColor(Color.RED);
          g.fillRect(10, 80, 200, 50);
