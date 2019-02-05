@@ -56,15 +56,15 @@ public class UnitCircleQuiz{
    
    public void finisher(){
       System.out.println("You got "+correct+" questions right out of "+totalQuestions);
-      g.drawString("You got "+correct+" questions right out of "+totalQuestions, 500, 500);
+      g.drawString("You got "+correct+" questions right out of "+totalQuestions, 400, 400);
       if (correct/totalQuestions <= 0.5){
-         g.drawString("You probably need to work on your skills. Review the Unit Circle", 500, 480);
+         g.drawString("You probably need to work on your skills. Review the Unit Circle", 400, 380);
       }else if (0.8>correct/totalQuestions && correct/totalQuestions > 0.5){
-         g.drawString("You're getting there! Review the Unit Circle", 500, 480);
+         g.drawString("You're getting there! Review the Unit Circle", 400, 380);
       }else if (correct/totalQuestions > 0.8 && incorrect > 0){
-         g.drawString("Almost perfect! Keep reviewing", 500, 480);
+         g.drawString("Almost perfect! Keep reviewing", 400, 380);
       }else if (incorrect == 0){
-         g.drawString("Perfect score! 100%", 500, 480);
+         g.drawString("Perfect score! 100%", 400, 380);
       }
    }
    
@@ -244,8 +244,8 @@ public class UnitCircleQuiz{
          }else if(randTrig == "tan"){
             if (stringTanValue.equals("-1")){return "-1";}
             else if(stringTanValue.equals("1")){return "1";}
-            else if(stringTanValue.equals("0.57")){return "1/(3)";}
-            else if(stringTanValue.equals("-0.57")){return "-(1)/3";}
+            else if(stringTanValue.equals("0.58")){return "1/(3)";}
+            else if(stringTanValue.equals("-0.58")){return "-(1)/3";}
             else if(stringTanValue.equals("1.73")){return "(3)";}
             else if(stringTanValue.equals("-1.73")){return "-(3)";}
          //the answers on these secant, cosecant, cotangent ones are just the inverse of the
