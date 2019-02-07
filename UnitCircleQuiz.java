@@ -68,6 +68,34 @@ public class UnitCircleQuiz{
       }
    }
    
+   private String rightAndWrong(String randTrig, answer, userInput){
+      //each number is a trig funtion. the numbers go as follows:
+      //                                sin,cos,tan,csc,sec,cot
+      Integer[] correctTrig = Integer { 0,0,0,0,0,0 };
+      if (randTrig == "sin"){
+         //uses the method to compare the answer & user 
+         randTrig[0] = inputIsA(userInput, answer, randTrig[0]);
+      }else if (randTrig == "cos"){
+      
+      }else if (trandTrig == "tan"){
+      
+      }else if (randTrig == "csc"){
+         
+      }else if (randTrig == "sec"){
+      
+      }else if (trandTrig == "cot"){
+         
+      }
+   }
+   
+   private boolean inputIsA(input,answer, count){
+      if (input.equals(answer){
+         return count++;
+      }else`{
+         return count;
+      }
+   }
+   
    public int runQuestion(int num){
       String[] trigFunctions= {"sin",
                               "cos",

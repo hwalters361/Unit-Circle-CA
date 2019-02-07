@@ -90,6 +90,8 @@ public class DrawAndExplainUnitCircle{
       
       g.drawLine(halfWidth+125, halfHeight+216, halfWidth-125, halfHeight-216);
       g.drawLine(halfWidth-125, halfHeight+216, halfWidth+125, halfHeight-216);
+      
+      
    }
    
    

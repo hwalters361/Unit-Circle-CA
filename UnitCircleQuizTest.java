@@ -4,7 +4,6 @@ public class UnitCircleQuizTest{
       
       quiz.playQuiz();
       
-      quiz.runQuestion(14);
-      quiz.finisher();
+      
    }
 }
