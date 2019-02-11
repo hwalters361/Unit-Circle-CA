@@ -37,6 +37,27 @@ public class DrawAndExplainUnitCircle{
       g.fillOval(halfWidth-5,halfHeight-5,10,10);
       
       //Draws all the lines and labels (coordinates and points) for the orange lines with degree 45
+      drawOrangeLabels(g, halfWidth, halfHeight);
+      
+      //Draws all the lines and labels (coordinates and points) for the blue lines with degree 30
+      drawBlueLabels(g, halfWidth, halfHeight);      
+      
+      //Draws all the lines and labels (coordinates and points) for the blue lines with degree 60
+      drawRedLabels(g, halfWidth, halfHeight);
+      
+      
+   }
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   public static void drawOrangeLabels(Graphics g, int halfWidth, int halfHeight){
       g.setColor(Color.ORANGE);
       
       g.fillOval(360-5,211-5,10,10);
@@ -54,7 +75,9 @@ public class DrawAndExplainUnitCircle{
       g.drawLine(halfWidth-177, halfHeight+177, halfWidth+177,halfHeight-177);
       g.drawLine(halfWidth-177, halfHeight-177, halfWidth+177, halfHeight+177);
       
-      //Draws all the lines and labels (coordinates and points) for the blue lines with degree 30
+   }
+   
+   public static void drawBlueLabels(Graphics g, int halfWidth, int halfHeight){
       g.setColor(Color.BLUE);
       
       g.fillOval(675-5,250-5,10,10);
@@ -72,8 +95,9 @@ public class DrawAndExplainUnitCircle{
       
       g.drawLine(halfWidth-216, halfHeight-125, halfWidth+216, halfHeight+125);
       g.drawLine(halfWidth+216, halfHeight-125, halfWidth-216, halfHeight+125);
-      
-      //Draws all the lines and labels (coordinates and points) for the blue lines with degree 60
+   }
+   
+   public static void drawRedLabels(Graphics g, int halfWidth, int halfHeight){
       g.setColor(Color.RED);
       
       g.fillOval(601-5,525-5,10,10);
@@ -90,9 +114,6 @@ public class DrawAndExplainUnitCircle{
       
       g.drawLine(halfWidth+125, halfHeight+216, halfWidth-125, halfHeight-216);
       g.drawLine(halfWidth-125, halfHeight+216, halfWidth+125, halfHeight-216);
-      
-      
    }
-   
    
 }
