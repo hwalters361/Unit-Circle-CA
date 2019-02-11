@@ -6,7 +6,7 @@ public class UnitCircleQuiz{
    private int totalQuestions=0;
    private int correct = 0;
    private int incorrect = 0;
-   private int[] correctTrig = { 0,0,0,0,0,0 };
+   private int[] incorrectTrig = { 0,0,0,0,0,0 };
    
    private static Scanner console = new Scanner(System.in);
    private static Random rand = new Random();
@@ -61,6 +61,7 @@ public class UnitCircleQuiz{
          g.drawString("Perfect score! 100%", 400, 380);
       }
       
+      String[] finalOutput = new String[incorrectTrig.length];
      
    }
    
@@ -69,31 +70,38 @@ public class UnitCircleQuiz{
       //each number is a trig funtion. the numbers go as follows:
       //                                sin,cos,tan,csc,sec,cot
             
-      if (randTrig == "sin"){
-         //uses the method to compare the answer & user 
-         correctTrig[0] = inputIsA(userInput, answer, correctTrig[0]);
-      }else if (randTrig == "cos"){
-         correctTrig[1] = inputIsA(userInput, answer, correctTrig[0]);
-      }else if (randTrig == "tan"){
-         correctTrig[2] = inputIsA(userInput, answer, correctTrig[0]);
-      }else if (randTrig == "csc"){
-         correctTrig[3] = inputIsA(userInput, answer, correctTrig[0]);
-      }else if (randTrig == "sec"){
-         correctTrig[4] = inputIsA(userInput, answer, correctTrig[0]);
-      }else if (randTrig == "cot"){
-         correctTrig[5] = inputIsA(userInput, answer, correctTrig[0]);
+      if (randTrig.equals("sin")){
+         incorrectTrig[0] = inputIsA(userInput, answer, incorrectTrig[0]);
+         
+      }else if (randTrig.equals("cos")){
+         incorrectTrig[1] = inputIsA(userInput, answer, incorrectTrig[1]);
+         
+      }else if (randTrig.equals("tan")){
+         incorrectTrig[2] = inputIsA(userInput, answer, incorrectTrig[2]);
+         
+      }else if (randTrig.equals("csc")){
+         incorrectTrig[3] = inputIsA(userInput, answer, incorrectTrig[3]);
+         
+      }else if (randTrig.equals("sec")){
+         incorrectTrig[4] = inputIsA(userInput, answer, incorrectTrig[4]);
+         
+      }else if (randTrig.equals("cot")){
+         incorrectTrig[5] = inputIsA(userInput, answer, incorrectTrig[5]);
+         
       }
       
-      return correctTrig;
+      return incorrectTrig;
    }
    
    
    
    private int inputIsA(String input,String answer, int count){
       if (input.equals(answer)){
-         return count++;
+         int incorrect = count;
+         return incorrect;
       }else{
-         return count;
+         int incorrect = count+1;
+         return incorrect;
       }
    }
    
@@ -178,7 +186,7 @@ public class UnitCircleQuiz{
          g.fillRect(8,78,198,48);
          
          g.setColor(Color.BLACK);
-         g.drawString("Correct!", 40, 100);
+         g.drawString("Correct!", 60, 100);
          g.drawString(myAnswer,60,130);
          panel.sleep(4000);
       }else{
