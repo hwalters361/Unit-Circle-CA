@@ -9,15 +9,20 @@ public class DrawAndExplainUnitCircle{
       DrawingPanel panel1 =	new DrawingPanel(PANEL_WIDTH,	PANEL_HEIGHT);
       Graphics	g1 = panel1.getGraphics();
       
-      basicUnitCircle(g1, panel1);
+      DrawingPanel panel2 =	new DrawingPanel(PANEL_WIDTH,	PANEL_HEIGHT);
+      Graphics	g2 = panel2.getGraphics();
       
+      basicUnitCircle(g1, panel1);
+      explainUnitCircle(g2,panel2);
       
       
    }
+   public static void explainUnitCircle(Graphics g, DrawingPanel panel){
    
+   }
    public static void basicUnitCircle(Graphics g, DrawingPanel panel){
       Font labelFont = new Font("Times New Roman", Font.BOLD, 14);
-      Font mainText = new Font("Times New Roman", Font.PLAIN, 20);
+      Font mainFont = new Font("Times New Roman", Font.PLAIN, 20);
 
       //creates circles diameter
       int diameter = 400;
@@ -45,7 +50,36 @@ public class DrawAndExplainUnitCircle{
       //Draws all the lines and labels (coordinates and points) for the blue lines with degree 60
       drawRedLabels(g, halfWidth, halfHeight);
       
+      g.setColor(Color.BLACK);
+      g.setFont(mainFont);
+      g.drawString("Because in the unit circle r = 1", 20,20);
+      g.drawString("x,y = cos(),sin()",20,40);
       
+      //draws the degrees
+      int modX = radius;
+      int modY = 0;
+      for (int i=0; i < 360; i+= 90){
+      
+         if (i == 0){
+            modY = 0;
+            modX = radius;
+         }else if(i == 90){
+            modY = -radius;
+            modX = 0;
+         }else if(i == 180){
+            modY = 0;
+            modX = -radius;
+         }else if(i == 270){
+            modY = radius;
+            modX = 0;
+         }else if(i == 360){
+            modY = 20;
+            modX = radius;
+         }
+         
+         g.setColor(Color.BLACK);
+         g.drawString(i+"º",halfWidth+modX, halfHeight+modY);
+      }
    }
    
    
@@ -75,6 +109,25 @@ public class DrawAndExplainUnitCircle{
       g.drawLine(halfWidth-177, halfHeight+177, halfWidth+177,halfHeight-177);
       g.drawLine(halfWidth-177, halfHeight-177, halfWidth+177, halfHeight+177);
       
+      int modX = 80;
+      int modY = -60;
+      for (int i=45; i < 360; i+= 90){
+         g.setColor(Color.BLACK);
+         //makes it so that 90,180,270, and 360 and labeled multiple times
+         
+         if (i == 225){
+            modY*=-1;
+         }
+         if (i==135 || i==315){
+            modX = -70;
+         }else{
+            modX = 50;
+         }
+            
+            g.drawString(i+"º",halfWidth+modX, halfHeight+modY);
+         }
+      
+      
    }
    
    public static void drawBlueLabels(Graphics g, int halfWidth, int halfHeight){
@@ -95,6 +148,25 @@ public class DrawAndExplainUnitCircle{
       
       g.drawLine(halfWidth-216, halfHeight-125, halfWidth+216, halfHeight+125);
       g.drawLine(halfWidth+216, halfHeight-125, halfWidth-216, halfHeight+125);
+      
+      
+      //draws the degrees
+      int modX = 60;
+      int modY = -15;
+      for (int i=30; i < 360; i+= 60){
+         
+         g.setColor(Color.BLACK);
+         //makes it so that 90,180,270, and 360 and labeled multiple times
+         if (i % 45 != 0){
+            if (i%7 == 0){
+               modY*=-1;
+            }
+            g.drawString(i+"º",halfWidth+modX, halfHeight+modY);
+            if (i==30 || i==210){
+               modX *= -1;
+            }
+         }
+      }
    }
    
    public static void drawRedLabels(Graphics g, int halfWidth, int halfHeight){
@@ -114,6 +186,28 @@ public class DrawAndExplainUnitCircle{
       
       g.drawLine(halfWidth+125, halfHeight+216, halfWidth-125, halfHeight-216);
       g.drawLine(halfWidth-125, halfHeight+216, halfWidth+125, halfHeight-216);
+      
+      int modX = 10;
+      int modY = -50;
+      for (int i=60; i < 360; i+= 60){
+         g.setColor(Color.BLACK);
+         //makes it so that 90,180,270, and 360 and labeled multiple times
+         if (i % 45 != 0){
+            if (i == 240){
+               modY*=-1;
+            }
+            if (i==120 || i==300){
+               modX = -30;
+            }else{
+               modX = 10;
+            }
+            
+            g.drawString(i+"º",halfWidth+modX, halfHeight+modY);
+         }
+         
+      }
+
+   
    }
    
 }
