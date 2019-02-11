@@ -3,9 +3,10 @@ import java.awt.*;
 import java.text.DecimalFormat;
  
 public class UnitCircleQuiz{
-   private int totalQuestions;
+   private int totalQuestions=0;
    private int correct = 0;
    private int incorrect = 0;
+   private int[] correctTrig = { 0,0,0,0,0,0 };
    
    private static Scanner console = new Scanner(System.in);
    private static Random rand = new Random();
@@ -15,7 +16,7 @@ public class UnitCircleQuiz{
    
 
    public UnitCircleQuiz(){
-      totalQuestions = 10;
+      
       panel = new DrawingPanel(1000,500);
       g = panel.getGraphics();
       
@@ -43,15 +44,8 @@ public class UnitCircleQuiz{
       this.g = givenG;
    }
 
-   public void playQuiz(){
-      for (int i = 1; i <= this.totalQuestions; i++){
-         //removes everything from the panel
-         
-         runQuestion(i);
-         finisher();
-         
-         
-      }
+   public void playQuiz(int i){
+      runQuestion(i);
    }
    
    public void finisher(){
@@ -66,43 +60,54 @@ public class UnitCircleQuiz{
       }else if (incorrect == 0){
          g.drawString("Perfect score! 100%", 400, 380);
       }
+      
+     
    }
    
-   private String rightAndWrong(String randTrig, answer, userInput){
+   public int[] rightAndWrong(String randTrig, String answer, String userInput){
+      //this counts the specific trig functions that the user got wrong.
       //each number is a trig funtion. the numbers go as follows:
       //                                sin,cos,tan,csc,sec,cot
-      Integer[] correctTrig = Integer { 0,0,0,0,0,0 };
+            
       if (randTrig == "sin"){
          //uses the method to compare the answer & user 
-         randTrig[0] = inputIsA(userInput, answer, randTrig[0]);
+         correctTrig[0] = inputIsA(userInput, answer, correctTrig[0]);
       }else if (randTrig == "cos"){
-      
-      }else if (trandTrig == "tan"){
-      
+         correctTrig[1] = inputIsA(userInput, answer, correctTrig[0]);
+      }else if (randTrig == "tan"){
+         correctTrig[2] = inputIsA(userInput, answer, correctTrig[0]);
       }else if (randTrig == "csc"){
-         
+         correctTrig[3] = inputIsA(userInput, answer, correctTrig[0]);
       }else if (randTrig == "sec"){
-      
-      }else if (trandTrig == "cot"){
-         
+         correctTrig[4] = inputIsA(userInput, answer, correctTrig[0]);
+      }else if (randTrig == "cot"){
+         correctTrig[5] = inputIsA(userInput, answer, correctTrig[0]);
       }
+      
+      return correctTrig;
    }
    
-   private boolean inputIsA(input,answer, count){
-      if (input.equals(answer){
+   
+   
+   private int inputIsA(String input,String answer, int count){
+      if (input.equals(answer)){
          return count++;
-      }else`{
+      }else{
          return count;
       }
    }
    
    public int runQuestion(int num){
+      totalQuestions++;
       String[] trigFunctions= {"sin",
                               "cos",
                               "tan",
                               "csc",
                               "sec",
                               "cot",};
+                              
+                              
+      
       //generates a random number to randomly select a trig function.
       
       int randomNum1 = rand.nextInt(trigFunctions.length-1);
@@ -156,6 +161,13 @@ public class UnitCircleQuiz{
       System.out.println("Your answer: " + userInput);
       int result = 0;
       
+      //gathers stats on the new correct/incorrect
+      int[] specificStats = rightAndWrong(randTrig, myAnswer, userInput);
+      
+      for (int i = 0; i < specificStats.length; i++){
+         System.out.println(specificStats[i]);
+      }
+      
       if (myAnswer.equals(userInput)){
          result = 1;
          correct++;
@@ -167,6 +179,7 @@ public class UnitCircleQuiz{
          
          g.setColor(Color.BLACK);
          g.drawString("Correct!", 40, 100);
+         g.drawString(myAnswer,60,130);
          panel.sleep(4000);
       }else{
          incorrect++;
@@ -179,6 +192,8 @@ public class UnitCircleQuiz{
          
          g.setColor(Color.BLACK);
          g.drawString("Incorrect", 40, 100);
+         g.drawString("Correct Answer: "+myAnswer, 60,150);
+         g.drawString("Your Answer: "+userInput,60,170);
          panel.sleep(5000);
       }
       
