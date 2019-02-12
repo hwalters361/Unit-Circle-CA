@@ -73,7 +73,7 @@ public class UnitCircleQuiz{
       String[] finalOutput = new String[incorrectTrig.length];
       
       for (int i = 0; i < incorrectTrig.length; i++){
-         finalOutput[i] = trigFunctions[i]+": "+incorrectTrig[i];
+         finalOutput[i] = trigFunctions[i]+": "+(incorrectTrig[i]);
          System.out.println(finalOutput[i]);
       }
      
@@ -121,9 +121,6 @@ public class UnitCircleQuiz{
    
    public int runQuestion(int num){
       totalQuestions++;
-      
-                              
-                              
       
       //generates a random number to randomly select a trig function.
       
