@@ -9,17 +9,13 @@ public class DrawAndExplainUnitCircle{
       DrawingPanel panel1 =	new DrawingPanel(PANEL_WIDTH,	PANEL_HEIGHT);
       Graphics	g1 = panel1.getGraphics();
       
-      DrawingPanel panel2 =	new DrawingPanel(PANEL_WIDTH,	PANEL_HEIGHT);
-      Graphics	g2 = panel2.getGraphics();
       
       basicUnitCircle(g1, panel1);
-      explainUnitCircle(g2,panel2);
+      
       
       
    }
-   public static void explainUnitCircle(Graphics g, DrawingPanel panel){
    
-   }
    public static void basicUnitCircle(Graphics g, DrawingPanel panel){
       Font labelFont = new Font("Times New Roman", Font.BOLD, 14);
       Font mainFont = new Font("Times New Roman", Font.PLAIN, 20);
