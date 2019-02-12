@@ -9,6 +9,7 @@ public class UnitCircleQuiz{
    //an array of the num of incorrect answers for each function
       //goes sin, cos, tan, csc, sec, cot
    private int[] incorrectTrig = { 0,0,0,0,0,0 };
+   private int[] correctTrig = { 0,0,0,0,0,0 };
    private int[] totalTrig = { 0,0,0,0,0,0 };
    
    private static Scanner console = new Scanner(System.in);
@@ -71,9 +72,16 @@ public class UnitCircleQuiz{
       }
       
       String[] finalOutput = new String[incorrectTrig.length];
-      
+      g.drawString("Review these functions:", 10,40);
       for (int i = 0; i < incorrectTrig.length; i++){
-         finalOutput[i] = trigFunctions[i]+": "+(incorrectTrig[i]);
+         if (totalTrig[i]>0 && correctTrig[i]>0){
+            finalOutput[i] = trigFunctions[i]+": Great Job!";
+         }else if (totalTrig[i]>0 && correctTrig[i]==0){
+            finalOutput[i] = trigFunctions[i]+": Review this function";
+            g.drawString(trigFunctions[i], 30, 50+i*20);
+         }else{
+            finalOutput[i] = trigFunctions[i] + ": answered no questions with this function";
+         }
          System.out.println(finalOutput[i]);
       }
      
@@ -85,37 +93,53 @@ public class UnitCircleQuiz{
       //                                sin,cos,tan,csc,sec,cot
             
       if (randTrig.equals("sin")){
-         incorrectTrig[0] = inputIsA(userInput, answer, incorrectTrig[0]);
+         incorrectTrig[0] = inputIsA(userInput, answer, incorrectTrig[0], false);
+         correctTrig[0] = inputIsA(userInput, answer, correctTrig[0], true);
          totalTrig[0] += 1;
       }else if (randTrig.equals("cos")){
-         incorrectTrig[1] = inputIsA(userInput, answer, incorrectTrig[1]);
+         incorrectTrig[1] = inputIsA(userInput, answer, incorrectTrig[1], false);
+         correctTrig[1] = inputIsA(userInput, answer, correctTrig[1], true);
          totalTrig[1] += 1;
       }else if (randTrig.equals("tan")){
-         incorrectTrig[2] = inputIsA(userInput, answer, incorrectTrig[2]);
+         incorrectTrig[2] = inputIsA(userInput, answer, incorrectTrig[2], false);
+         correctTrig[2] = inputIsA(userInput, answer, correctTrig[2], true);
          totalTrig[2] += 1;
       }else if (randTrig.equals("csc")){
-         incorrectTrig[3] = inputIsA(userInput, answer, incorrectTrig[3]);
+         incorrectTrig[3] = inputIsA(userInput, answer, incorrectTrig[3], false);
+         correctTrig[3] = inputIsA(userInput, answer, correctTrig[3], true);
          totalTrig[3] += 1;
       }else if (randTrig.equals("sec")){
-         incorrectTrig[4] = inputIsA(userInput, answer, incorrectTrig[4]);
+         incorrectTrig[4] = inputIsA(userInput, answer, incorrectTrig[4], false);
+         correctTrig[4] = inputIsA(userInput, answer, correctTrig[4], true);
          totalTrig[4] += 1;
       }else if (randTrig.equals("cot")){
-         incorrectTrig[5] = inputIsA(userInput, answer, incorrectTrig[5]);
+         incorrectTrig[5] = inputIsA(userInput, answer, incorrectTrig[5], false);
+         correctTrig[5] = inputIsA(userInput, answer, correctTrig[5], true);
          totalTrig[5] += 1;
       }
       
-      return incorrectTrig;
+      return correctTrig;
    }
    
    
    
-   private int inputIsA(String input,String answer, int count){
-      if (input.equals(answer)){
-         int incorrect = count;
-         return incorrect;
-      }else{
-         int incorrect = count+1;
-         return incorrect;
+   private int inputIsA(String input,String answer, int count, boolean incorrectOrCorrect){
+      if (incorrectOrCorrect==false){
+         if (input.equals(answer)){
+            int mYincorrect = count;
+            return mYincorrect;
+         }else{
+            int mYincorrect = count+1;
+            return mYincorrect;
+         }
+      }else {
+         if (input.equals(answer)){
+            int mYcorrect = count+1;
+            return mYcorrect;
+         }else{
+            int mYcorrect = count;
+            return mYcorrect;
+         }
       }
    }
    
@@ -160,7 +184,7 @@ public class UnitCircleQuiz{
       g.setFont(headerFont);    
       g.drawString("Question "+num+".", 20,20);
       g.setFont(bodyFont);
-      String question = "Find the exact value (no decimal) of the function ";
+      String question = "\n\nFind the exact value (no decimal) of the function ";
       question = question+randTrig+"("+randomAngle+"): ";
       
       
@@ -178,9 +202,7 @@ public class UnitCircleQuiz{
       //gathers stats on the new correct/incorrect
       int[] specificStats = rightAndWrong(randTrig, myAnswer, userInput);
       
-      for (int i = 0; i < specificStats.length; i++){
-         System.out.println(specificStats[i]);
-      }
+      
       
       if (myAnswer.equals(userInput)){
          result = 1;
@@ -302,7 +324,7 @@ public class UnitCircleQuiz{
             if (stringTanValue.equals("-1")){return "-1";}
             else if(stringTanValue.equals("1")){return "1";}
             else if(stringTanValue.equals("0.58")){return "1/(3)";}
-            else if(stringTanValue.equals("-0.58")){return "-(1)/3";}
+            else if(stringTanValue.equals("-0.58")){return "-1/(3)";}
             else if(stringTanValue.equals("1.73")){return "(3)";}
             else if(stringTanValue.equals("-1.73")){return "-(3)";}
          //the answers on these secant, cosecant, cotangent ones are just the inverse of the
@@ -329,7 +351,14 @@ public class UnitCircleQuiz{
             else if(stringTanValue.equals("1.73")){return "1/(3)";}
             else if(stringTanValue.equals("-1.73")){return "-1/(3)";}
          }
-;
+      
+         if (answer == "default"){
+            if (randomAngle== 135 || randomAngle== 315){
+               answer = "-1";
+            }else{
+               answer = "1";
+            }
+         }
       }
       return answer;
    }
