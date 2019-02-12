@@ -6,10 +6,19 @@ public class UnitCircleQuiz{
    private int totalQuestions=0;
    private int correct = 0;
    private int incorrect = 0;
+   //an array of the num of incorrect answers for each function
+      //goes sin, cos, tan, csc, sec, cot
    private int[] incorrectTrig = { 0,0,0,0,0,0 };
+   private int[] totalTrig = { 0,0,0,0,0,0 };
    
    private static Scanner console = new Scanner(System.in);
    private static Random rand = new Random();
+   private static String[] trigFunctions= {"sin",
+                                             "cos",
+                                             "tan",
+                                             "csc",
+                                             "sec",
+                                             "cot",};
    
    private DrawingPanel panel;
    private Graphics g;
@@ -62,6 +71,11 @@ public class UnitCircleQuiz{
       }
       
       String[] finalOutput = new String[incorrectTrig.length];
+      
+      for (int i = 0; i < incorrectTrig.length; i++){
+         finalOutput[i] = trigFunctions[i]+": "+incorrectTrig[i];
+         System.out.println(finalOutput[i]);
+      }
      
    }
    
@@ -72,22 +86,22 @@ public class UnitCircleQuiz{
             
       if (randTrig.equals("sin")){
          incorrectTrig[0] = inputIsA(userInput, answer, incorrectTrig[0]);
-         
+         totalTrig[0] += 1;
       }else if (randTrig.equals("cos")){
          incorrectTrig[1] = inputIsA(userInput, answer, incorrectTrig[1]);
-         
+         totalTrig[1] += 1;
       }else if (randTrig.equals("tan")){
          incorrectTrig[2] = inputIsA(userInput, answer, incorrectTrig[2]);
-         
+         totalTrig[2] += 1;
       }else if (randTrig.equals("csc")){
          incorrectTrig[3] = inputIsA(userInput, answer, incorrectTrig[3]);
-         
+         totalTrig[3] += 1;
       }else if (randTrig.equals("sec")){
          incorrectTrig[4] = inputIsA(userInput, answer, incorrectTrig[4]);
-         
+         totalTrig[4] += 1;
       }else if (randTrig.equals("cot")){
          incorrectTrig[5] = inputIsA(userInput, answer, incorrectTrig[5]);
-         
+         totalTrig[5] += 1;
       }
       
       return incorrectTrig;
@@ -107,12 +121,7 @@ public class UnitCircleQuiz{
    
    public int runQuestion(int num){
       totalQuestions++;
-      String[] trigFunctions= {"sin",
-                              "cos",
-                              "tan",
-                              "csc",
-                              "sec",
-                              "cot",};
+      
                               
                               
       
