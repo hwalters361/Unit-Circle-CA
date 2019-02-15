@@ -14,4 +14,6 @@ public class DrawingPanelTest{
       int radius = diameter/2;
       
       g.drawOval((PANEL_WIDTH/2)-radius,(PANEL_HEIGHT/2)-radius, diameter, diameter);
+      g.drawOval((PANEL_WIDTH/2)-radius,(PANEL_HEIGHT/2)-radius, diameter, diameter);
+}
 }
