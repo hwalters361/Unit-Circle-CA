@@ -4,7 +4,7 @@ This repository contains files for my Unit Circle CA
 DrawAndExplainUnitCircle just draws a unit circle in Drawing Panel
 
 UnitCircleQuiz is a quiz class that tests the user on different trig functions
-about the unit circle. The questions always ask for the user to input the correct ratio
+about the unit circle. The questions ask for the user to input the correct ratio to different trig functions. At the end, the program tells the user which trig functions to restudy based off their answers.
 
 In order for the program to work:
 
