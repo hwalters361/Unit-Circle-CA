@@ -12,7 +12,7 @@ In order for the program to work:
 2. Open DrawingPanel.java, and run the file. A bunch of janky class files will appear. Ignore these and move on.
 3. Run DrawingPanelTest.java. If a window appears with a circle in the upper left corner, the drawingpanel class is working correctly
 4. Run UnitCircleQuiz.java so that the UnitCircleQuiz.class file will appear
-5. Run UnitCircleQuizTest.java to play the quiz. Input your answers into output console.
+5. Run UnitCircleQuizTest.java to play the quiz. Input your answer.
 6. Run DrawAndExplainUnitCircle.java to draw a labeled unit circle
 
 NOTES ON PLAYING THE QUIZ
@@ -20,10 +20,10 @@ NOTES ON PLAYING THE QUIZ
 
 - Wrap parenthesis around numbers which are radicalized. For example, radical three should appear as (3)
 
+	o For example, cos(135) would equal -(2)/2 but sec(135) equals -2/(2)
+
 - Negatives are always first in the ratio. They go before everything. The answer -1/2 is valid but 1/-2 is invalid.
 
 - All answers should be ratios. No decimals!
 
 My explanations for the values used are in written notes which I submitted to schoology.
-
-Make sure that the class files are in the same folder as the other client files.
