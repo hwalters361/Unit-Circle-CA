@@ -72,13 +72,23 @@ public class UnitCircleQuiz{
       }
       
       String[] finalOutput = new String[incorrectTrig.length];
-      g.drawString("Review these functions:", 10,40);
+      g.drawString("Review these functions:", 10,180);
+      
       for (int i = 0; i < incorrectTrig.length; i++){
-         if (totalTrig[i]>0 && correctTrig[i]>0){
-            finalOutput[i] = trigFunctions[i]+": Great Job!";
-         }else if (totalTrig[i]>0 && correctTrig[i]==0){
-            finalOutput[i] = trigFunctions[i]+": Review this function";
-            g.drawString(trigFunctions[i], 30, 50+i*20);
+         if (totalTrig[i]>0){
+            
+            double percentCorrect = (double)correctTrig[i]/(double)totalTrig[i] * 100;
+            percentCorrect = Math.round(percentCorrect);
+            
+            finalOutput[i] = trigFunctions[i] + ": You were right " + percentCorrect + "% of the time";
+
+            if (percentCorrect > 70.0){
+               finalOutput[i] = finalOutput[i]+"\n Good Job!";            
+            }else{
+               finalOutput[i] = finalOutput[i]+"\n Review this.";
+               g.drawString(trigFunctions[i], 30, 190+i*20);
+            }
+         
          }else{
             finalOutput[i] = trigFunctions[i] + ": answered no questions with this function";
          }
@@ -215,7 +225,7 @@ public class UnitCircleQuiz{
          
          g.setColor(Color.BLACK);
          g.drawString("Correct!", 60, 100);
-         g.drawString(myAnswer,60,130);
+         g.drawString("You answered: "+myAnswer,60,150);
          panel.sleep(4000);
       }else{
          incorrect++;
