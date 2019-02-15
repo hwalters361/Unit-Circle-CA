@@ -61,18 +61,18 @@ public class UnitCircleQuiz{
    public void finisher(){
       System.out.println("You got "+correct+" questions right out of "+totalQuestions);
       g.drawString("You got "+correct+" questions right out of "+totalQuestions, 400, 400);
-      if (correct/totalQuestions <= 0.5){
+      if ((double)correct/(double)totalQuestions <= 0.5){
          g.drawString("You probably need to work on your skills. Review the Unit Circle", 400, 380);
-      }else if (0.8>correct/totalQuestions && correct/totalQuestions > 0.5){
+      }else if (0.8>(double)correct/(double)totalQuestions && (double)correct/(double)totalQuestions > 0.5){
          g.drawString("You're getting there! Review the Unit Circle", 400, 380);
-      }else if (correct/totalQuestions > 0.8 && incorrect > 0){
+      }else if ((double)correct/(double)totalQuestions > 0.8 && (double)incorrect > 0){
          g.drawString("Almost perfect! Keep reviewing", 400, 380);
       }else if (incorrect == 0){
          g.drawString("Perfect score! 100%", 400, 380);
       }
       
       String[] finalOutput = new String[incorrectTrig.length];
-      g.drawString("Review these functions:", 10,180);
+      g.drawString("Review these functions:", 10,200);
       
       for (int i = 0; i < incorrectTrig.length; i++){
          if (totalTrig[i]>0){
@@ -86,7 +86,7 @@ public class UnitCircleQuiz{
                finalOutput[i] = finalOutput[i]+"\n Good Job!";            
             }else{
                finalOutput[i] = finalOutput[i]+"\n Review this.";
-               g.drawString(trigFunctions[i], 30, 190+i*20);
+               g.drawString(trigFunctions[i], 30, 220+i*20);
             }
          
          }else{
