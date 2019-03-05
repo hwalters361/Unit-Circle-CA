@@ -29,3 +29,15 @@ NOTES ON PLAYING THE QUIZ
 - All answers should be ratios. No decimals!
 
 My explanations for the values used are in written notes which I submitted to schoology.
+
+We were also required show how we use the teaching tool. Using the DrawAndExplainUnitCirlce.java file, you can see all values of the unit circle. The file explains that x values of the coordinates correspond to cosine values and that y value coordinates correspond to sine values. Using the unit circle illustration, you can go to the labeled degree, choose either the x or y value for cosine or sine repsectively and solve for the problems below. For tan values, you would divide the sine value by the cosine value. For csc, sec, and cot values you would multiply the sine or cosine value by it's reciprocol.
+a. sin(60°)
+f. cos(540°)
+b. cos(225°)
+g. tan(-450°)
+c. sin(300°)
+h. sec(390°)
+d. tan(315°)
+i. csc(-120°)
+e. sin(-135°)
+j. cot(210°)
