@@ -35,11 +35,13 @@ We were also required show how we use the teaching tool. Using the DrawAndExplai
 **However, it is important to note that the main focus for this proect isn't the DrawAndExplainUnitCircle.java, it is UnitCircleTest.java. That is the main teaching tool to aid in memorization of the unit circle**
 
 a. sin(60°)
+
 To solve this problem, you would use the unit circle illustration and take the y coordinate point for the angle 60º.
 By doing so, you would find the correct answer 1/2
 https://imgur.com/iwRM87Z
 
 f. cos(540°)
+
 To solve this problem, you would use the unit circle illustration and take the x coordinate point for the angle at 180º, which is 540 - 360.
 You can see from the illustration that the correct answer would be -1, since it is in the -1 position on the coordinate plane. Unfortunately this point is unlabeled.
 
@@ -50,6 +52,7 @@ By doing so, you would find the correct answer √2/2
 https://imgur.com/gNnNshF
 
 g. tan(-450°)
+
 To solve this problem, you would use the unit circle illustration and take the x and y coordinate points for the angle 270º.
 You would find this out by adding 360º to 450º to get -90º, then subracting 90º from 360º to get 270º.
 After that you would take the x and y coordinates of 270º, and knowing that tan = sin/cos and that x = cos and y = sin you would divide y/x, getting the tangent value.
