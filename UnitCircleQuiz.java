@@ -6,14 +6,18 @@ public class UnitCircleQuiz{
    private int totalQuestions=0;
    private int correct = 0;
    private int incorrect = 0;
-   //an array of the num of incorrect answers for each function
+   //an array of the num of incorrect answers for each trig function
       //goes sin, cos, tan, csc, sec, cot
    private int[] incorrectTrig = { 0,0,0,0,0,0 };
+   
+   //counts the number of times a specific trig function is answered correctly
    private int[] correctTrig = { 0,0,0,0,0,0 };
+   
+   //counts the total number of times a specific function is asked in a question
    private int[] totalTrig = { 0,0,0,0,0,0 };
    
-   private static Scanner console = new Scanner(System.in);
-   private static Random rand = new Random();
+   private static Scanner console = new Scanner(System.in); //to use scanner
+   private static Random rand = new Random(); //to use random
    private static String[] trigFunctions= {"sin",
                                              "cos",
                                              "tan",
@@ -21,17 +25,17 @@ public class UnitCircleQuiz{
                                              "sec",
                                              "cot",};
    
-   private DrawingPanel panel;
-   private Graphics g;
+   private DrawingPanel panel; //to use drawing panel
+   private Graphics g; //to use drawing panel
    
 
    public UnitCircleQuiz(){
-      
+      //creates a drawing panel 1000 x 500 pixels
       panel = new DrawingPanel(1000,500);
       g = panel.getGraphics();
       
    }
-   
+   //getter methods of the fields
    public int getCorrect(){
       return correct;
    }
@@ -47,30 +51,38 @@ public class UnitCircleQuiz{
    public Graphics getGraphics(){
       return g;
    }
-   
+   //constructor for the class. no default options.
    public UnitCircleQuiz(int totalQs, DrawingPanel givenPanel, Graphics givenG){
       this.totalQuestions = totalQs;
       this.panel = givenPanel;
       this.g = givenG;
    }
-
-   public void playQuiz(int i){
-      runQuestion(i);
+   //play quiz method runs one question 10 times, and then runs finisher which displays
+   //the result of the quiz.
+   public void playQuiz(){
+      for (int i = 1; i <= 10; i++){
+         runQuestion(i);
+      }
+      finisher();
    }
    
+   //finisher. Tells you which trig functions to review and gives a congragulatory message depending on results
    public void finisher(){
+      //prints the correct versus total to the console
       System.out.println("You got "+correct+" questions right out of "+totalQuestions);
+      //prints the correct versus total to the drawing panel
       g.drawString("You got "+correct+" questions right out of "+totalQuestions, 400, 400);
-      if ((double)correct/(double)totalQuestions <= 0.5){
+      
+      //prints the messagebased on results. 100% = "Perfect!.." Almost
+      if (incorrect == 0){
+         g.drawString("Perfect score! 100%", 400, 380);
+      }else if ((double)correct/(double)totalQuestions <= 0.5){
          g.drawString("You probably need to work on your skills. Review the Unit Circle", 400, 380);
       }else if (0.8>(double)correct/(double)totalQuestions && (double)correct/(double)totalQuestions > 0.5){
          g.drawString("You're getting there! Review the Unit Circle", 400, 380);
-      }else if ((double)correct/(double)totalQuestions > 0.8 && (double)incorrect > 0){
+      }else if ((double)correct/(double)totalQuestions > 0.8){
          g.drawString("Almost perfect! Keep reviewing", 400, 380);
-      }else if (incorrect == 0){
-         g.drawString("Perfect score! 100%", 400, 380);
-      }
-      
+
       String[] finalOutput = new String[incorrectTrig.length];
       g.drawString("Review these functions:", 10,200);
       
