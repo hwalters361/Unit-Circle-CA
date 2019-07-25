@@ -82,7 +82,7 @@ public class UnitCircleQuiz{
          g.drawString("You're getting there! Review the Unit Circle", 400, 380);
       }else if ((double)correct/(double)totalQuestions > 0.8){
          g.drawString("Almost perfect! Keep reviewing", 400, 380);
-
+      }
       String[] finalOutput = new String[incorrectTrig.length];
       g.drawString("Review these functions:", 10,200);
       
@@ -109,61 +109,6 @@ public class UnitCircleQuiz{
      
    }
    
-   public int[] rightAndWrong(String randTrig, String answer, String userInput){
-      //this counts the specific trig functions that the user got wrong.
-      //each number is a trig funtion. the numbers go as follows:
-      //                                sin,cos,tan,csc,sec,cot
-            
-      if (randTrig.equals("sin")){
-         incorrectTrig[0] = inputIsA(userInput, answer, incorrectTrig[0], false);
-         correctTrig[0] = inputIsA(userInput, answer, correctTrig[0], true);
-         totalTrig[0] += 1;
-      }else if (randTrig.equals("cos")){
-         incorrectTrig[1] = inputIsA(userInput, answer, incorrectTrig[1], false);
-         correctTrig[1] = inputIsA(userInput, answer, correctTrig[1], true);
-         totalTrig[1] += 1;
-      }else if (randTrig.equals("tan")){
-         incorrectTrig[2] = inputIsA(userInput, answer, incorrectTrig[2], false);
-         correctTrig[2] = inputIsA(userInput, answer, correctTrig[2], true);
-         totalTrig[2] += 1;
-      }else if (randTrig.equals("csc")){
-         incorrectTrig[3] = inputIsA(userInput, answer, incorrectTrig[3], false);
-         correctTrig[3] = inputIsA(userInput, answer, correctTrig[3], true);
-         totalTrig[3] += 1;
-      }else if (randTrig.equals("sec")){
-         incorrectTrig[4] = inputIsA(userInput, answer, incorrectTrig[4], false);
-         correctTrig[4] = inputIsA(userInput, answer, correctTrig[4], true);
-         totalTrig[4] += 1;
-      }else if (randTrig.equals("cot")){
-         incorrectTrig[5] = inputIsA(userInput, answer, incorrectTrig[5], false);
-         correctTrig[5] = inputIsA(userInput, answer, correctTrig[5], true);
-         totalTrig[5] += 1;
-      }
-      
-      return correctTrig;
-   }
-   
-   
-   
-   private int inputIsA(String input,String answer, int count, boolean incorrectOrCorrect){
-      if (incorrectOrCorrect==false){
-         if (input.equals(answer)){
-            int mYincorrect = count;
-            return mYincorrect;
-         }else{
-            int mYincorrect = count+1;
-            return mYincorrect;
-         }
-      }else {
-         if (input.equals(answer)){
-            int mYcorrect = count+1;
-            return mYcorrect;
-         }else{
-            int mYcorrect = count;
-            return mYcorrect;
-         }
-      }
-   }
    
    public int runQuestion(int num){
       totalQuestions++;
@@ -221,8 +166,6 @@ public class UnitCircleQuiz{
       System.out.println("Your answer: " + userInput);
       int result = 0;
       
-      //gathers stats on the new correct/incorrect
-      int[] specificStats = rightAndWrong(randTrig, myAnswer, userInput);
       
       
       
